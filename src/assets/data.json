@@ -39,7 +39,7 @@
     ]
   },
   "content": {
-    "about": "I’m a Computer Science major at Harvey Mudd College interested in software engineering. I'm currently a software engineer intern at [Dotdash](https://www.dotdash.com). I also enjoy baking, biking, and photography.",
+    "about": "I’m a Computer Science major at Harvey Mudd College graduating in May 2022. I’m currently searching for an entry-level position in software engineering where I can use my knowledge and experience to make significant contributions and help improve the world.",
     "skills": [
       {
         "name": "Languages",
@@ -50,34 +50,20 @@
           "C++",
           "Dart",
           "Julia",
+          "MATLAB",
           "HTML",
-          "CSS",
-          "Sass",
-          "XML",
-          "JSON"
-        ]
-      },
-      {
-        "name": "Frameworks",
-        "data": [
-          "Vue",
-          "React",
-          "Flutter"
-        ]
-      },
-      {
-        "name": "Command line",
-        "data": [
-          "Git",
-          "Vim",
-          "Bash",
-          "Zsh"
+          "CSS/Sass"
         ]
       },
       {
         "name": "Software",
         "data": [
-          "MATLAB",
+          "Git",
+          "Vue.js",
+          "Flutter",
+          "Bash/Zsh",
+          "Vim",
+          "LaTeX",
           "Mathematica",
           "Jupyter Notebook"
         ]
@@ -87,12 +73,12 @@
       {
         "title": "Personal Site",
         "description": "This website, created using [Vue.js](https://vuejs.org). A work in progress.",
-        "link": "https://alexhadley.net",
+        "link": null,
         "github": "https://github.com/alexhad6/alexhadley.net"
       },
       {
         "title": "Glaze Gallery",
-        "description": "Gallery to allow potters to view different glaze combinations, built using PHP and jQuery. View at the link below (the password is “Sassy”).",
+        "description": "Gallery to allow potters to view different glaze combinations, built using PHP and jQuery. View at the link in the corner (the password is “Sassy”).",
         "link": "https://www.lamanopottery.com/glaze-gallery/",
         "github": "https://github.com/alexhad6/glaze-gallery"
       },
@@ -101,6 +87,12 @@
         "description": "An application to faciliate a tag game at my college, made using [Flutter](https://flutter.dev) and [Firebase](https://firebase.google.com). A work in progress.",
         "link": null,
         "github": "https://github.com/alexhad6/HvZ-app"
+      },
+      {
+        "title": "Galaxy Simulator",
+        "description": "A package for [Julia](https://julialang.org) implementing the parallelized [Barnes Hut](https://en.wikipedia.org/wiki/Barnes–Hut_simulation) approximation algorithm for an *n*-body simulation.",
+        "link": null,
+        "github": "https://github.com/alexhad6/ParallelBarnesHut.jl"
       },
       {
         "title": "NQ App",
@@ -113,12 +105,6 @@
         "description": "A website showcasing some of my photography, built using [Vue.js](https://vuejs.org) and [Firebase](https://firebase.google.com). A work in progress.",
         "link": "https://photos.alexhadley.net",
         "github": "https://github.com/alexhad6/photos.alexhadley.net"
-      },
-      {
-        "title": "Galaxy Simulator",
-        "description": "A package for [Julia](https://julialang.org) implementing the parallelized [Barnes Hut](https://en.wikipedia.org/wiki/Barnes–Hut_simulation) approximation algorithm for an *n*-body simulation.",
-        "link": null,
-        "github": "https://github.com/alexhad6/ParallelBarnesHut.jl"
       }
     ],
     "experience": "Section in progress. More coming soon."
