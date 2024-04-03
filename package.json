@@ -1,0 +1,7 @@
+{
+    "name": "alexhadley.net",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "packageManager": "yarn@4.1.1"
+}
