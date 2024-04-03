@@ -7,3 +7,6 @@
 # Yarn
 .yarn/
 node_modules/
+
+# Astro
+dist/

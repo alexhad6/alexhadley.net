@@ -1,7 +1,22 @@
 {
-    "name": "alexhadley.net",
-    "version": "0.1.0",
-    "private": true,
-    "type": "module",
-    "packageManager": "yarn@4.1.1"
+  "name": "alexhadley.net",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "lint": "prettier --check ."
+  },
+  "packageManager": "yarn@4.1.1",
+  "dependencies": {
+    "astro": "^4.5.14"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.5.10",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "typescript": "^5.4.3"
+  }
 }
