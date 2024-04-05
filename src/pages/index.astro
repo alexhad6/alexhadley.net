@@ -1,11 +1,40 @@
 ---
-import { siteName } from "@/constants";
+import { getCollection, getEntry } from "astro:content";
 import Base from "@/layouts/Base.astro";
+
+const intro = await getEntry("sections", "intro");
+const { Content: Intro } = await intro.render();
+
+const projects = await Promise.all(
+  (await getCollection("projects")).map(
+    async ({ data: { title, githubUrl }, render }) => ({
+      title,
+      githubUrl,
+      Content: (await render()).Content,
+    }),
+  ),
+);
 ---
 
-<Base title={siteName}>
-  <header class="text-center">
-    <h1 class="mb-3 text-3xl font-bold">{siteName}</h1>
-    <p class="text-lg">🚧 Under construction 🚧</p>
-  </header>
+<Base>
+  <Intro />
+  <ul class="ml-4 space-y-2">
+    {
+      projects.map(({ title, githubUrl, Content }) => (
+        <li>
+          <p>
+            {title}:
+            <a
+              class="border-b border-black hover:border-b-2"
+              href={githubUrl}
+              target="_blank"
+            >
+              {githubUrl}
+            </a>
+          </p>
+          <Content />
+        </li>
+      ))
+    }
+  </ul>
 </Base>
