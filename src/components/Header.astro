@@ -1,8 +1,8 @@
 ---
-import { siGithub, siLinkedin } from "simple-icons";
 import { faFileLines, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { siGithub, siLinkedin } from "simple-icons";
 import { siteName } from "@/constants";
-import { SimpleIconsIcon, FontAwesomeIcon, IconLink } from "@/components";
+import { FontAwesomeIcon, SimpleIconsIcon, IconLink } from "@/components";
 ---
 
 <header class="bg-slate-200 p-4 dark:bg-slate-700">
@@ -10,18 +10,22 @@ import { SimpleIconsIcon, FontAwesomeIcon, IconLink } from "@/components";
     class="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-1 sm:flex-row"
   >
     <a href="/"><h1 class="text-4xl font-bold">{siteName}</h1></a>
-    <div class="flex items-center gap-1">
-      <IconLink href="https://github.com/alexhad6" label="GitHub Profile">
-        <SimpleIconsIcon icon={siGithub} />
+    <div class="flex items-center gap-5">
+      <IconLink large href="https://github.com/alexhad6" label="GitHub Profile">
+        <SimpleIconsIcon large icon={siGithub} />
       </IconLink>
-      <IconLink href="https://www.linkedin.com/in/alexhadley/" label="LinkedIn Profile">
-        <SimpleIconsIcon icon={siLinkedin} />
+      <IconLink
+        large
+        href="https://www.linkedin.com/in/alexhadley/"
+        label="LinkedIn Profile"
+      >
+        <SimpleIconsIcon large icon={siLinkedin} />
       </IconLink>
-      <IconLink href="/Resume.pdf" label="Resume">
-        <FontAwesomeIcon icon={faFileLines} />
+      <IconLink large href="/Resume.pdf" label="Resume">
+        <FontAwesomeIcon large icon={faFileLines} />
       </IconLink>
-      <IconLink href="mailto:contact@alexhadley.net" label="Email">
-        <FontAwesomeIcon icon={faEnvelope} />
+      <IconLink large href="mailto:contact@alexhadley.net" label="Email">
+        <FontAwesomeIcon large icon={faEnvelope} />
       </IconLink>
     </div>
   </div>

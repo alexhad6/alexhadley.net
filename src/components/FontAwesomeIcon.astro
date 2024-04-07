@@ -6,12 +6,14 @@ import { Icon } from "@/components";
 type Props = {
   /** The Font Awesome icon to use. */
   icon: IconDefinition;
+  /** Whether to render a larger icon. */
+  large?: boolean;
 };
 
-const { icon: iconDefinition } = Astro.props;
+const { icon: iconDefinition, large } = Astro.props;
 const [abstract] = icon(iconDefinition).abstract;
 const viewBox: string = abstract.attributes.viewBox;
 const svgPath: string = abstract.children![0].attributes.d;
 ---
 
-<Icon {viewBox} svgPath={svgPath} />
+<Icon {viewBox} svgPath={svgPath} {large} />

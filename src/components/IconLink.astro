@@ -4,13 +4,16 @@ type Props = {
   href: string;
   /** Label to use for accessibility. */
   label: string;
+  /** Whether to render a larger icon link. */
+  large?: boolean;
 };
 
-const { href, label } = Astro.props;
+const { href, label, large = false } = Astro.props;
 ---
 
 <a
-  class="flex cursor-pointer items-center justify-center rounded-lg p-2 hover:bg-slate-300 dark:hover:bg-slate-600"
+  class={"flex cursor-pointer items-center justify-center rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600" +
+    (large ? " -m-2 p-2" : " -m-1.5 p-1.5")}
   {href}
   target="_blank"
   aria-label={label}

@@ -1,19 +1,24 @@
 ---
 import { getCollection, getEntry } from "astro:content";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { siGithub } from "simple-icons";
 import Base from "@/layouts/Base.astro";
-import { Card } from "@/components";
+import { Card, FontAwesomeIcon, SimpleIconsIcon, IconLink } from "@/components";
 
 const intro = await getEntry("sections", "intro");
 const { Content: IntroContent } = await intro.render();
 
 const projectsCollection = await getCollection("projects");
 const projects = await Promise.all(
-  projectsCollection.map(async ({ data: { sortOrder, title, githubUrl }, render }) => ({
-    sortOrder,
-    title,
-    githubUrl,
-    Content: (await render()).Content,
-  })),
+  projectsCollection.map(
+    async ({ data: { sortOrder, title, url, githubUrl }, render }) => ({
+      sortOrder,
+      title,
+      url,
+      githubUrl,
+      Content: (await render()).Content,
+    }),
+  ),
 );
 projects.sort((project1, project2) => project1.sortOrder - project2.sortOrder);
 ---
@@ -25,9 +30,23 @@ projects.sort((project1, project2) => project1.sortOrder - project2.sortOrder);
   <h2 class="text-3xl font-bold">Projects</h2>
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
     {
-      projects.map(({ title, Content }) => (
+      projects.map(({ title, url, githubUrl, Content }) => (
         <Card>
-          <h3 class="mb-1 text-xl font-bold">{title}</h3>
+          <div class="mb-1 flex items-center justify-between">
+            <h3 class="text-xl font-bold">{title}</h3>
+            <div class="flex gap-3.5">
+              {url && (
+                <IconLink href={url} label={`${title} GitHub`}>
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                </IconLink>
+              )}
+              {githubUrl && (
+                <IconLink href={githubUrl} label={`${title} Website`}>
+                  <SimpleIconsIcon icon={siGithub} />
+                </IconLink>
+              )}
+            </div>
+          </div>
           <div>
             <Content />
           </div>

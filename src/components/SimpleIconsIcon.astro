@@ -5,9 +5,11 @@ import { Icon } from "@/components";
 type Props = {
   /** The Simple Icons icon to use. */
   icon: SimpleIcon;
+  /** Whether to render a larger icon. */
+  large?: boolean;
 };
 
-const { icon } = Astro.props;
+const { icon, large } = Astro.props;
 ---
 
-<Icon viewBox="0 0 24 24" svgPath={icon.path} />
+<Icon viewBox="0 0 24 24" svgPath={icon.path} {large} />

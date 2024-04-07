@@ -4,11 +4,17 @@ type Props = {
   viewBox: string;
   /** SVG path to render. */
   svgPath: string;
+  /** Whether to render a larger icon. */
+  large?: boolean;
 };
 
-const { svgPath, viewBox } = Astro.props;
+const { svgPath, viewBox, large = false } = Astro.props;
 ---
 
-<svg class="h-7 w-7 fill-current" {viewBox} aria-hidden="true">
+<svg
+  class={large ? "h-7 w-7 fill-current" : "h-5 w-5 fill-current"}
+  {viewBox}
+  aria-hidden="true"
+>
   <path d={svgPath}></path>
 </svg>
