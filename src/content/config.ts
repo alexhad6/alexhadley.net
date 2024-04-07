@@ -10,8 +10,9 @@ const projects = defineCollection({
   schema: z.object({
     sortOrder: z.number(),
     title: z.string(),
-    url: z.string().optional(),
-    githubUrl: z.string().optional(),
+    url: z.string().url().optional(),
+    githubUrl: z.string().url().optional(),
+    tools: z.object({}).catchall(z.string().url()).optional(),
   }),
 });
 

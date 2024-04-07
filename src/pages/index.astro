@@ -1,9 +1,9 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import { siGithub } from "simple-icons";
+import { siGithub, siPypi } from "simple-icons";
 import Base from "@/layouts/Base.astro";
-import { Card, FontAwesomeIcon, SimpleIconsIcon, IconLink } from "@/components";
+import { Card, Chip, FontAwesomeIcon, SimpleIconsIcon, IconLink } from "@/components";
 
 const intro = await getEntry("sections", "intro");
 const { Content: IntroContent } = await intro.render();
@@ -11,11 +11,12 @@ const { Content: IntroContent } = await intro.render();
 const projectsCollection = await getCollection("projects");
 const projects = await Promise.all(
   projectsCollection.map(
-    async ({ data: { sortOrder, title, url, githubUrl }, render }) => ({
+    async ({ data: { sortOrder, title, url, githubUrl, tools }, render }) => ({
       sortOrder,
       title,
       url,
       githubUrl,
+      tools,
       Content: (await render()).Content,
     }),
   ),
@@ -31,26 +32,41 @@ projects.sort((project1, project2) => project1.sortOrder - project2.sortOrder);
     <h2 class="text-3xl font-bold">Projects</h2>
     <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
-        projects.map(({ title, url, githubUrl, Content }) => (
+        projects.map(({ title, url, githubUrl, tools, Content }) => (
           <Card>
-            <div class="mb-2 flex items-center justify-between">
-              <h3 class="text-xl font-bold">{title}</h3>
-              <div class="flex gap-4">
-                {url && (
-                  <IconLink href={url} label={`${title} GitHub`}>
-                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                  </IconLink>
+            <div class="mb-4">
+              <div class="mb-2 flex items-center justify-between">
+                {url ? (
+                  <a href={url} target="_blank" class="underline">
+                    <h3 class="text-xl font-bold">{title}</h3>
+                  </a>
+                ) : (
+                  <h3 class="text-xl font-bold">{title}</h3>
                 )}
-                {githubUrl && (
-                  <IconLink href={githubUrl} label={`${title} Website`}>
-                    <SimpleIconsIcon icon={siGithub} />
-                  </IconLink>
-                )}
+                <div class="flex gap-4">
+                  {url && (
+                    <IconLink href={url} label={`${title} GitHub`}>
+                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                    </IconLink>
+                  )}
+                  {githubUrl && (
+                    <IconLink href={githubUrl} label={`${title} Website`}>
+                      <SimpleIconsIcon icon={siGithub} />
+                    </IconLink>
+                  )}
+                </div>
+              </div>
+              <div>
+                <Content />
               </div>
             </div>
-            <div>
-              <Content />
-            </div>
+            {tools && (
+              <div class="flex flex-wrap gap-2">
+                {Object.entries(tools).map(([toolName, toolUrl]) => (
+                  <Chip href={toolUrl}>{toolName}</Chip>
+                ))}
+              </div>
+            )}
           </Card>
         ))
       }
