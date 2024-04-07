@@ -28,9 +28,9 @@ const titlePrefix = title ? `${title} | ` : "";
     <title>{titlePrefix + siteName}</title>
     <link rel="preload" as="font" href={inter} type="font/woff2" />
   </head>
-  <body class="flex h-screen flex-col dark:text-white">
+  <body class="flex h-screen flex-col bg-slate-100 dark:bg-slate-800 dark:text-white">
     <Header />
-    <main class="grow bg-slate-100 p-4 dark:bg-slate-800">
+    <main class="grow p-4">
       <div class="m-auto h-full max-w-screen-xl space-y-4">
         <slot />
       </div>
