@@ -9,4 +9,4 @@ tools:
 ---
 
 A gallery for potters at La Mano Pottery in NYC to view photos of different glaze
-combinations. (Password: "Sassy").
+combinations. (Password: "Sassy")

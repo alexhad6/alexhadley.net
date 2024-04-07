@@ -61,7 +61,7 @@ projects.sort((project1, project2) => project1.sortOrder - project2.sortOrder);
               </div>
             </div>
             {tools && (
-              <div class="flex flex-wrap gap-2">
+              <div class="flex flex-wrap gap-2.5">
                 {Object.entries(tools).map(([toolName, toolUrl]) => (
                   <Chip href={toolUrl}>{toolName}</Chip>
                 ))}
