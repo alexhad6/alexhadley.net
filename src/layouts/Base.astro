@@ -1,5 +1,6 @@
 ---
 import "@fontsource-variable/inter";
+import inter from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2";
 import { siteName } from "@/constants";
 import Header from "@/components/Header.astro";
 
@@ -25,6 +26,7 @@ const titlePrefix = title ? `${title} | ` : "";
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="Alex Hadley’s software portfolio." />
     <title>{titlePrefix + siteName}</title>
+    <link rel="preload" as="font" href={inter} type="font/woff2" />
   </head>
   <body class="flex h-screen flex-col dark:text-white">
     <Header />
