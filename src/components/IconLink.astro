@@ -1,0 +1,19 @@
+---
+type Props = {
+  /** Reference to link to. */
+  href: string;
+  /** Label to use for accessibility. */
+  label: string;
+};
+
+const { href, label } = Astro.props;
+---
+
+<a
+  class="flex cursor-pointer items-center justify-center rounded-xl p-2 hover:bg-gray-200"
+  {href}
+  target="_blank"
+  aria-label={label}
+>
+  <slot />
+</a>

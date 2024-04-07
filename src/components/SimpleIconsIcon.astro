@@ -1,0 +1,13 @@
+---
+import type { SimpleIcon } from "simple-icons";
+import { Icon } from "@/components";
+
+type Props = {
+  /** The Simple Icons icon to use. */
+  icon: SimpleIcon;
+};
+
+const { icon } = Astro.props;
+---
+
+<Icon viewBox="0 0 24 24" svgPath={icon.path} />

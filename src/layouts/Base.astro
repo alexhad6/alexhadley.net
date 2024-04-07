@@ -21,13 +21,14 @@ const titlePrefix = title ? `${title} | ` : "";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content="Alex Hadley’s software portfolio." />
     <title>{titlePrefix + siteName}</title>
   </head>
-  <body class="p-4">
+  <body>
     <Header />
-    <main class="space-y-2">
+    <main class="space-y-2 p-4">
       <slot />
     </main>
   </body>
