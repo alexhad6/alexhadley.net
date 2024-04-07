@@ -1,3 +1,3 @@
-Hi, I'm Alex.
-
-Here's a portfolio of some of my projects:
+I'm a software engineer in the
+<a href="https://painterlab.caltech.edu" target="_blank">Quantum Photonics Group</a>
+(Painter Lab) at Caltech.

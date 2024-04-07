@@ -5,20 +5,24 @@ import { siteName } from "@/constants";
 import { SimpleIconsIcon, FontAwesomeIcon, IconLink } from "@/components";
 ---
 
-<header class="flex bg-gray-100 p-3">
-  <a href="/"><h1 class="mr-3 text-3xl font-bold">{siteName}</h1></a>
-  <div class="flex items-center gap-1">
-    <IconLink href="https://github.com/alexhad6" label="GitHub Profile">
-      <SimpleIconsIcon icon={siGithub} />
-    </IconLink>
-    <IconLink href="https://www.linkedin.com/in/alexhadley/" label="LinkedIn Profile">
-      <SimpleIconsIcon icon={siLinkedin} />
-    </IconLink>
-    <IconLink href="/Resume.pdf" label="Resume">
-      <FontAwesomeIcon icon={faFileLines} />
-    </IconLink>
-    <IconLink href="mailto:contact@alexhadley.net" label="Email">
-      <FontAwesomeIcon icon={faEnvelope} />
-    </IconLink>
+<header class="bg-slate-200 p-4 dark:bg-slate-700">
+  <div
+    class="mx-auto flex max-w-screen-xl flex-col items-center justify-between gap-1 sm:flex-row"
+  >
+    <a href="/"><h1 class="text-4xl font-bold">{siteName}</h1></a>
+    <div class="flex items-center gap-1">
+      <IconLink href="https://github.com/alexhad6" label="GitHub Profile">
+        <SimpleIconsIcon icon={siGithub} />
+      </IconLink>
+      <IconLink href="https://www.linkedin.com/in/alexhadley/" label="LinkedIn Profile">
+        <SimpleIconsIcon icon={siLinkedin} />
+      </IconLink>
+      <IconLink href="/Resume.pdf" label="Resume">
+        <FontAwesomeIcon icon={faFileLines} />
+      </IconLink>
+      <IconLink href="mailto:contact@alexhadley.net" label="Email">
+        <FontAwesomeIcon icon={faEnvelope} />
+      </IconLink>
+    </div>
   </div>
 </header>

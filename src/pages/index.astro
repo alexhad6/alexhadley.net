@@ -1,40 +1,38 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import Base from "@/layouts/Base.astro";
+import { Card } from "@/components";
 
 const intro = await getEntry("sections", "intro");
-const { Content: Intro } = await intro.render();
+const { Content: IntroContent } = await intro.render();
 
+const projectsCollection = await getCollection("projects");
 const projects = await Promise.all(
-  (await getCollection("projects")).map(
-    async ({ data: { title, githubUrl }, render }) => ({
-      title,
-      githubUrl,
-      Content: (await render()).Content,
-    }),
-  ),
+  projectsCollection.map(async ({ data: { sortOrder, title, githubUrl }, render }) => ({
+    sortOrder,
+    title,
+    githubUrl,
+    Content: (await render()).Content,
+  })),
 );
+projects.sort((project1, project2) => project1.sortOrder - project2.sortOrder);
 ---
 
 <Base>
-  <Intro />
-  <ul class="ml-4 space-y-2">
+  <div class="text-lg">
+    <IntroContent />
+  </div>
+  <h2 class="text-3xl font-bold">Projects</h2>
+  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
     {
-      projects.map(({ title, githubUrl, Content }) => (
-        <li>
-          <p>
-            {title}:
-            <a
-              class="border-b border-black hover:border-b-2"
-              href={githubUrl}
-              target="_blank"
-            >
-              {githubUrl}
-            </a>
-          </p>
-          <Content />
-        </li>
+      projects.map(({ title, Content }) => (
+        <Card>
+          <h3 class="mb-1 text-xl font-bold">{title}</h3>
+          <div>
+            <Content />
+          </div>
+        </Card>
       ))
     }
-  </ul>
+  </div>
 </Base>

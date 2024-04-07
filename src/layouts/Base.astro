@@ -26,10 +26,12 @@ const titlePrefix = title ? `${title} | ` : "";
     <meta name="description" content="Alex Hadley’s software portfolio." />
     <title>{titlePrefix + siteName}</title>
   </head>
-  <body>
+  <body class="flex h-screen flex-col dark:text-white">
     <Header />
-    <main class="space-y-2 p-4">
-      <slot />
+    <main class="grow bg-slate-100 p-4 dark:bg-slate-800">
+      <div class="m-auto h-full max-w-screen-xl space-y-4">
+        <slot />
+      </div>
     </main>
   </body>
 </html>
@@ -37,5 +39,9 @@ const titlePrefix = title ? `${title} | ` : "";
 <style is:global>
   html {
     font-family: "Inter Variable", sans-serif;
+  }
+
+  main a {
+    text-decoration-line: underline;
   }
 </style>

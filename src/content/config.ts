@@ -8,9 +8,10 @@ const sections = defineCollection({
 const projects = defineCollection({
   type: "content",
   schema: z.object({
+    sortOrder: z.number(),
     title: z.string(),
     url: z.string().optional(),
-    githubUrl: z.string(),
+    githubUrl: z.string().optional(),
   }),
 });
 
