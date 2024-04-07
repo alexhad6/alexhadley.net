@@ -30,10 +30,8 @@ const titlePrefix = title ? `${title} | ` : "";
   </head>
   <body class="flex h-screen flex-col bg-slate-100 dark:bg-slate-800 dark:text-white">
     <Header />
-    <main class="grow p-4">
-      <div class="m-auto h-full max-w-screen-xl space-y-4">
-        <slot />
-      </div>
+    <main class="grow p-5">
+      <slot />
     </main>
   </body>
 </html>

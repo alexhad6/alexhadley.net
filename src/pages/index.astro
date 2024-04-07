@@ -24,34 +24,36 @@ projects.sort((project1, project2) => project1.sortOrder - project2.sortOrder);
 ---
 
 <Base>
-  <div class="text-lg">
-    <IntroContent />
-  </div>
-  <h2 class="text-3xl font-bold">Projects</h2>
-  <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-    {
-      projects.map(({ title, url, githubUrl, Content }) => (
-        <Card>
-          <div class="mb-1 flex items-center justify-between">
-            <h3 class="text-xl font-bold">{title}</h3>
-            <div class="flex gap-3.5">
-              {url && (
-                <IconLink href={url} label={`${title} GitHub`}>
-                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                </IconLink>
-              )}
-              {githubUrl && (
-                <IconLink href={githubUrl} label={`${title} Website`}>
-                  <SimpleIconsIcon icon={siGithub} />
-                </IconLink>
-              )}
+  <div class="m-auto h-full max-w-screen-xl space-y-5">
+    <div class="text-lg">
+      <IntroContent />
+    </div>
+    <h2 class="text-3xl font-bold">Projects</h2>
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        projects.map(({ title, url, githubUrl, Content }) => (
+          <Card>
+            <div class="mb-2 flex items-center justify-between">
+              <h3 class="text-xl font-bold">{title}</h3>
+              <div class="flex gap-4">
+                {url && (
+                  <IconLink href={url} label={`${title} GitHub`}>
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                  </IconLink>
+                )}
+                {githubUrl && (
+                  <IconLink href={githubUrl} label={`${title} Website`}>
+                    <SimpleIconsIcon icon={siGithub} />
+                  </IconLink>
+                )}
+              </div>
             </div>
-          </div>
-          <div>
-            <Content />
-          </div>
-        </Card>
-      ))
-    }
+            <div>
+              <Content />
+            </div>
+          </Card>
+        ))
+      }
+    </div>
   </div>
 </Base>
