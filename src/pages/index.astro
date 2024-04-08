@@ -12,12 +12,12 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <Base>
-  <div class="m-auto h-full max-w-screen-xl space-y-5">
+  <div class="m-auto h-full max-w-screen-lg space-y-5">
     <div class="max-w-screen-md space-y-3 text-lg">
       <IntroContent />
     </div>
     <h2 class="text-3xl font-bold">Projects</h2>
-    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
       {projects.map((project) => <ProjectCard {project} />)}
     </div>
   </div>
