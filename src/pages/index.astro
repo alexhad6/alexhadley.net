@@ -1,7 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import { siGithub, siPypi } from "simple-icons";
+import { siGithub, siPython } from "simple-icons";
 import Base from "@/layouts/Base.astro";
 import { Card, Chip, FontAwesomeIcon, SimpleIconsIcon, IconLink } from "@/components";
 
@@ -11,10 +11,11 @@ const { Content: IntroContent } = await intro.render();
 const projectsCollection = await getCollection("projects");
 const projects = await Promise.all(
   projectsCollection.map(
-    async ({ data: { sortOrder, title, url, githubUrl, tools }, render }) => ({
+    async ({ data: { sortOrder, title, url, pypiUrl, githubUrl, tools }, render }) => ({
       sortOrder,
       title,
       url,
+      pypiUrl,
       githubUrl,
       tools,
       Content: (await render()).Content,
@@ -26,13 +27,13 @@ projects.sort((project1, project2) => project1.sortOrder - project2.sortOrder);
 
 <Base>
   <div class="m-auto h-full max-w-screen-xl space-y-5">
-    <div class="text-lg">
+    <div class="max-w-screen-md space-y-3 text-lg">
       <IntroContent />
     </div>
     <h2 class="text-3xl font-bold">Projects</h2>
     <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {
-        projects.map(({ title, url, githubUrl, tools, Content }) => (
+        projects.map(({ title, url, pypiUrl, githubUrl, tools, Content }) => (
           <Card>
             <div class="mb-4">
               <div class="mb-2 flex items-center justify-between">
@@ -45,12 +46,17 @@ projects.sort((project1, project2) => project1.sortOrder - project2.sortOrder);
                 )}
                 <div class="flex gap-4">
                   {url && (
-                    <IconLink href={url} label={`${title} GitHub`}>
+                    <IconLink href={url} label={`${title} Website`}>
                       <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                     </IconLink>
                   )}
+                  {pypiUrl && (
+                    <IconLink href={pypiUrl} label={`${title} PyPI`}>
+                      <SimpleIconsIcon icon={siPython} />
+                    </IconLink>
+                  )}
                   {githubUrl && (
-                    <IconLink href={githubUrl} label={`${title} Website`}>
+                    <IconLink href={githubUrl} label={`${title} GitHub`}>
                       <SimpleIconsIcon icon={siGithub} />
                     </IconLink>
                   )}

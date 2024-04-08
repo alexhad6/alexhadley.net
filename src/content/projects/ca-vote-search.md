@@ -1,5 +1,5 @@
 ---
-sortOrder: 1
+sortOrder: 3
 title: CA Vote Search
 url: https://cavotesearch.pages.dev
 githubUrl: https://github.com/alexhad6/CAVoteSearch
@@ -10,4 +10,5 @@ tools:
   Skeleton UI: https://www.skeleton.dev
 ---
 
-A website to search the voting history of California state legislators.
+A website to search the voting history of California state legislators. Currently in
+progress.

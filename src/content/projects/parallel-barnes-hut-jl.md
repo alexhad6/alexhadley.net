@@ -1,5 +1,5 @@
 ---
-sortOrder: 3
+sortOrder: 5
 title: ParallelBarnesHut.jl
 githubUrl: https://github.com/alexhad6/ParallelBarnesHut.jl
 tools:

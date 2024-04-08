@@ -11,6 +11,7 @@ const projects = defineCollection({
     sortOrder: z.number(),
     title: z.string(),
     url: z.string().url().optional(),
+    pypiUrl: z.string().url().optional(),
     githubUrl: z.string().url().optional(),
     tools: z.object({}).catchall(z.string().url()).optional(),
   }),
