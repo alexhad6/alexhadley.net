@@ -1,6 +1,7 @@
 ---
 sortOrder: 3
 title: CA Vote Search
+imageName: ca-vote-search.png
 url: https://cavotesearch.pages.dev
 githubUrl: https://github.com/alexhad6/CAVoteSearch
 tools:

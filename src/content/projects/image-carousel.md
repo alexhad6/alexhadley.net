@@ -1,6 +1,7 @@
 ---
 sortOrder: 2
 title: Image Carousel
+imageName: image-carousel.png
 url: https://www.thespruce.com/best-vacuum-cleaners-4062974#mntl-sc-block_2-0-20
 tools:
   Sass: https://sass-lang.com

@@ -1,6 +1,7 @@
 ---
 sortOrder: 5
 title: ParallelBarnesHut.jl
+imageName: parallel-barnes-hut-jl.png
 githubUrl: https://github.com/alexhad6/ParallelBarnesHut.jl
 tools:
   Julia: https://julialang.org

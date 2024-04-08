@@ -1,7 +1,6 @@
 ---
 sortOrder: 1
 title: ParamDB
-url: https://paramdb.readthedocs.io
 pypiUrl: https://pypi.org/project/paramdb/
 githubUrl: https://github.com/PainterQubits/paramdb
 tools:

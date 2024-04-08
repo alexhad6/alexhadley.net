@@ -10,6 +10,7 @@ const projects = defineCollection({
   schema: z.object({
     sortOrder: z.number(),
     title: z.string(),
+    imageName: z.string().optional(),
     url: z.string().url().optional(),
     pypiUrl: z.string().url().optional(),
     githubUrl: z.string().url().optional(),

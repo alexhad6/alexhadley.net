@@ -1,28 +1,14 @@
 ---
 import { getCollection, getEntry } from "astro:content";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-import { siGithub, siPython } from "simple-icons";
 import Base from "@/layouts/Base.astro";
-import { Card, Chip, FontAwesomeIcon, SimpleIconsIcon, IconLink } from "@/components";
+import { ProjectCard } from "@/components";
 
 const intro = await getEntry("sections", "intro");
 const { Content: IntroContent } = await intro.render();
 
-const projectsCollection = await getCollection("projects");
-const projects = await Promise.all(
-  projectsCollection.map(
-    async ({ data: { sortOrder, title, url, pypiUrl, githubUrl, tools }, render }) => ({
-      sortOrder,
-      title,
-      url,
-      pypiUrl,
-      githubUrl,
-      tools,
-      Content: (await render()).Content,
-    }),
-  ),
+const projects = (await getCollection("projects")).sort(
+  (project1, project2) => project1.data.sortOrder - project2.data.sortOrder,
 );
-projects.sort((project1, project2) => project1.sortOrder - project2.sortOrder);
 ---
 
 <Base>
@@ -32,50 +18,7 @@ projects.sort((project1, project2) => project1.sortOrder - project2.sortOrder);
     </div>
     <h2 class="text-3xl font-bold">Projects</h2>
     <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {
-        projects.map(({ title, url, pypiUrl, githubUrl, tools, Content }) => (
-          <Card>
-            <div class="mb-4">
-              <div class="mb-2 flex items-center justify-between">
-                {url ? (
-                  <a href={url} target="_blank" class="underline">
-                    <h3 class="text-xl font-bold">{title}</h3>
-                  </a>
-                ) : (
-                  <h3 class="text-xl font-bold">{title}</h3>
-                )}
-                <div class="flex gap-4">
-                  {url && (
-                    <IconLink href={url} label={`${title} Website`}>
-                      <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-                    </IconLink>
-                  )}
-                  {pypiUrl && (
-                    <IconLink href={pypiUrl} label={`${title} PyPI`}>
-                      <SimpleIconsIcon icon={siPython} />
-                    </IconLink>
-                  )}
-                  {githubUrl && (
-                    <IconLink href={githubUrl} label={`${title} GitHub`}>
-                      <SimpleIconsIcon icon={siGithub} />
-                    </IconLink>
-                  )}
-                </div>
-              </div>
-              <div>
-                <Content />
-              </div>
-            </div>
-            {tools && (
-              <div class="flex flex-wrap gap-2.5">
-                {Object.entries(tools).map(([toolName, toolUrl]) => (
-                  <Chip href={toolUrl}>{toolName}</Chip>
-                ))}
-              </div>
-            )}
-          </Card>
-        ))
-      }
+      {projects.map((project) => <ProjectCard {project} />)}
     </div>
   </div>
 </Base>
