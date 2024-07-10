@@ -12,13 +12,33 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <Base>
-  <div class="m-auto h-full max-w-screen-lg space-y-5">
+  <div class="m-auto h-full max-w-screen-lg space-y-5 pb-10">
     <div class="max-w-screen-md space-y-3 text-lg">
       <IntroContent />
     </div>
-    <h2 class="text-3xl font-bold">Projects</h2>
-    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
-      {projects.map((project) => <ProjectCard {project} />)}
+    <div>
+      <h2 class="mb-5 text-3xl font-bold">Projects</h2>
+      <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+        {projects.map((project) => <ProjectCard {project} />)}
+      </div>
+    </div>
+    <div class="pt-1">
+      <h2 class="mb-3 text-3xl font-bold">Demos</h2>
+      <h3 class="mb-3 text-2xl font-bold" id="paramdb-paramview-demo">
+        ParamDB and ParamView
+      </h3>
+      <div class="relative h-0 pb-[63.68%]">
+        <iframe
+          class="absolute"
+          width="100%"
+          height="100%"
+          src="https://www.youtube-nocookie.com/embed/bidXq7xGGgY?si=4PDHtNj33e3XC7uH&rel=0"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 </Base>
