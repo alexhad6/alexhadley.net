@@ -13,4 +13,4 @@ tools:
 A Python package for storing and retrieving experiment parameters, built for the
 <a href="https://painterlab.caltech.edu" target="_blank">Painter Lab</a> at Caltech.
 
-See ParamDB in use in the <a href="#paramdb-paramview-demo">demo below</a>.
+See ParamDB in use in the <a href="#demo">demo below</a>.
