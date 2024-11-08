@@ -26,6 +26,14 @@ const titlePrefix = title ? `${title} | ` : "";
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content="Alex Hadley’s software portfolio." />
     <title>{titlePrefix + siteName}</title>
+    <script is:inline type="application/ld+json">
+      {
+        "@context": "https://alexhadley.net",
+        "@type": "WebSite",
+        "name": "Alex Hadley",
+        "url": "https://alexhadley.net/"
+      }
+    </script>
     <link rel="preload" as="font" href={inter} type="font/woff2" />
   </head>
   <body class="flex h-screen flex-col bg-slate-100 dark:bg-slate-800 dark:text-white">
