@@ -1,6 +1,6 @@
 ---
 import { faFileLines, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { siGithub, siLinkedin } from "simple-icons";
+import { siGithub, siLinkedin, siOrcid } from "simple-icons";
 import { siteName } from "@/constants";
 import { FontAwesomeIcon, SimpleIconsIcon, IconLink } from "@/components";
 ---
@@ -20,6 +20,9 @@ import { FontAwesomeIcon, SimpleIconsIcon, IconLink } from "@/components";
         label="LinkedIn Profile"
       >
         <SimpleIconsIcon large icon={siLinkedin} />
+      </IconLink>
+      <IconLink large href="https://orcid.org/0009-0006-6196-7372" label="ORCID Record">
+        <SimpleIconsIcon large icon={siOrcid} />
       </IconLink>
       <IconLink large href="/Resume - Alex Hadley.pdf" label="Resume">
         <FontAwesomeIcon large icon={faFileLines} />
