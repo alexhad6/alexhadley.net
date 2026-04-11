@@ -11,10 +11,6 @@ type Props = {
 const { svgPath, viewBox, large = false } = Astro.props;
 ---
 
-<svg
-  class={large ? "h-7 w-7 fill-current" : "h-5 w-5 fill-current"}
-  {viewBox}
-  aria-hidden="true"
->
+<svg class={large ? "h-7 w-7 fill-current" : "h-5 w-5 fill-current"} {viewBox} aria-hidden="true">
   <path d={svgPath}></path>
 </svg>

@@ -6,19 +6,13 @@ import { FontAwesomeIcon, SimpleIconsIcon, IconLink } from "@/components";
 ---
 
 <header class="bg-slate-200 p-5 dark:bg-slate-700">
-  <div
-    class="mx-auto flex max-w-screen-lg flex-col items-center justify-between gap-3 sm:flex-row"
-  >
+  <div class="mx-auto flex max-w-screen-lg flex-col items-center justify-between gap-3 sm:flex-row">
     <a href="/"><h1 class="text-4xl font-bold">{siteName}</h1></a>
     <div class="mr-1 flex items-center gap-5">
       <IconLink large href="https://github.com/alexhad6" label="GitHub Profile">
         <SimpleIconsIcon large icon={siGithub} />
       </IconLink>
-      <IconLink
-        large
-        href="https://www.linkedin.com/in/alexhadley/"
-        label="LinkedIn Profile"
-      >
+      <IconLink large href="https://www.linkedin.com/in/alexhadley/" label="LinkedIn Profile">
         <SimpleIconsIcon large icon={siLinkedin} />
       </IconLink>
       <IconLink large href="https://orcid.org/0009-0006-6196-7372" label="ORCID Record">
